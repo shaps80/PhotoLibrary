@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="S5b-4x-wtP" customClass="MediaAssetCell" customModule="MediaLibraryUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="169" height="115"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="169" height="115"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="JfP-pI-anP" customClass="MediaArtworkImageView" customModule="MediaLibraryUI" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="169" height="95"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="JfP-pI-anP" secondAttribute="height" multiplier="16:9" id="RQ4-nr-vnv"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2h-Nn-bXj" customClass="MediaEditingButton" customModule="MediaLibraryUI" customModuleProvider="target">
+                        <rect key="frame" x="136" y="62" width="23" height="23"/>
+                        <state key="normal" image="unselected"/>
+                        <state key="selected" image="selected"/>
+                    </button>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="00:00:00" textAlignment="right" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFx-dH-yjA" customClass="MediaSecondaryLabel" customModule="MediaLibraryUI" customModuleProvider="target">
+                        <rect key="frame" x="112.5" y="99" width="52.5" height="14"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="JfP-pI-anP" firstAttribute="leading" secondItem="S5b-4x-wtP" secondAttribute="leading" id="EuK-9r-fN3"/>
+                <constraint firstAttribute="bottom" secondItem="LFx-dH-yjA" secondAttribute="bottom" constant="2" id="IhN-q8-i0e"/>
+                <constraint firstItem="JfP-pI-anP" firstAttribute="bottom" secondItem="t2h-Nn-bXj" secondAttribute="bottom" constant="10" id="Ikx-tI-Wll"/>
+                <constraint firstItem="JfP-pI-anP" firstAttribute="trailing" secondItem="t2h-Nn-bXj" secondAttribute="trailing" constant="10" id="JYC-BT-QmS"/>
+                <constraint firstItem="LFx-dH-yjA" firstAttribute="top" secondItem="JfP-pI-anP" secondAttribute="bottom" constant="4" id="LNk-1Y-Isy"/>
+                <constraint firstAttribute="trailing" secondItem="JfP-pI-anP" secondAttribute="trailing" id="TZt-rb-uZp"/>
+                <constraint firstItem="JfP-pI-anP" firstAttribute="top" secondItem="S5b-4x-wtP" secondAttribute="top" id="VOM-hz-znl"/>
+                <constraint firstItem="LFx-dH-yjA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="S5b-4x-wtP" secondAttribute="leading" constant="4" id="eUz-XP-Fvy"/>
+                <constraint firstAttribute="trailing" secondItem="LFx-dH-yjA" secondAttribute="trailing" constant="4" id="wgS-Ci-Unb"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="7K7-pL-zY7"/>
+            <size key="customSize" width="169" height="115"/>
+            <connections>
+                <outlet property="imageView" destination="JfP-pI-anP" id="Fy3-5i-v8K"/>
+                <outlet property="ratioConstraint" destination="RQ4-nr-vnv" id="DcE-S3-z9v"/>
+                <outlet property="selectionButton" destination="t2h-Nn-bXj" id="B68-T1-tP8"/>
+                <outlet property="titleLabel" destination="LFx-dH-yjA" id="tsF-CV-eN9"/>
+            </connections>
+            <point key="canvasLocation" x="464.80000000000001" y="84.107946026986511"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="selected" width="23" height="23"/>
+        <image name="unselected" width="23" height="23"/>
+    </resources>
+</document>

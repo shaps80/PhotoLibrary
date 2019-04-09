@@ -3,17 +3,17 @@ import UIKit
 final class MediaThemeProvider: ThemeProviding {
 
     static let shared: MediaThemeProvider = .init()
-    private var theme: SubscribableValue<Theme>
+    private var theme: SubscribableValue<MediaPickerTheme>
 
-    static let availableThemes: [Theme.Type] = [
-        LightTheme.self,
-        DarkTheme.self,
-        BlackTheme.self
+    static let availableThemes: [MediaPickerTheme.Type] = [
+        MediaPickerLightTheme.self,
+        MediaPickerDarkTheme.self,
+        MediaPickerBlackTheme.self
     ]
 
-    static let defaultTheme = LightTheme.self
+    static let defaultTheme = MediaPickerLightTheme.self
 
-    var currentTheme: Theme {
+    var currentTheme: MediaPickerTheme {
         get { return theme.value }
         set {
             apply(newValue)
@@ -27,7 +27,7 @@ final class MediaThemeProvider: ThemeProviding {
         theme = SubscribableValue<Theme>(value: current.init())
     }
 
-    func apply(_ theme: Theme) {
+    func apply(_ theme: MediaPickerTheme) {
         guard let view = MediaPickerViewController.current?.view else { return }
         UIView.transition(with: view, duration: 0.2, options: .transitionCrossDissolve, animations: { [weak self] in
             self?.theme.dispatchQueue.sync {
@@ -36,7 +36,7 @@ final class MediaThemeProvider: ThemeProviding {
         }, completion: nil)
     }
 
-    func subscribeToChanges(_ object: AnyObject, handler: @escaping (Theme) -> Void) {
+    func subscribeToChanges(_ object: AnyObject, handler: @escaping (MediaPickerTheme) -> Void) {
         theme.subscribe(object, using: handler)
     }
 

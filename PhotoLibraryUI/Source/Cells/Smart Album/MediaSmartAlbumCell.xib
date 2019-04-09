@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yWT-ea-SQc" customClass="MediaSmartAlbumCell" customModule="MediaLibraryUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="298" height="46"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="298" height="46"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXg-tH-4sj" customClass="MediaPrimaryLabel" customModule="MediaLibraryUI" customModuleProvider="target">
+                        <rect key="frame" x="20" y="12" width="42" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Lb-bt-LwO" customClass="MediaSeparatorView" customModule="MediaLibraryUI" customModuleProvider="target">
+                        <rect key="frame" x="20" y="45.5" width="258" height="0.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="1pW-aP-QSW"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="disclosure" translatesAutoresizingMaskIntoConstraints="NO" id="zsM-at-6Y6" customClass="MediaDisclosureImageView" customModule="MediaLibraryUI" customModuleProvider="target">
+                        <rect key="frame" x="270" y="16.5" width="8" height="13"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="0Lb-bt-LwO" firstAttribute="leading" secondItem="yWT-ea-SQc" secondAttribute="leading" constant="20" id="CMm-8D-p6m"/>
+                <constraint firstAttribute="bottom" secondItem="HXg-tH-4sj" secondAttribute="bottom" priority="999" constant="12" id="HWD-Kp-aod"/>
+                <constraint firstItem="HXg-tH-4sj" firstAttribute="leading" secondItem="yWT-ea-SQc" secondAttribute="leading" constant="20" id="PGC-sN-L9x"/>
+                <constraint firstItem="HXg-tH-4sj" firstAttribute="top" secondItem="yWT-ea-SQc" secondAttribute="top" constant="12" id="SQN-Vd-OUc"/>
+                <constraint firstAttribute="bottom" secondItem="0Lb-bt-LwO" secondAttribute="bottom" id="UGI-WB-fED"/>
+                <constraint firstItem="zsM-at-6Y6" firstAttribute="centerY" secondItem="yWT-ea-SQc" secondAttribute="centerY" id="dyd-Ng-bXh"/>
+                <constraint firstItem="zsM-at-6Y6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HXg-tH-4sj" secondAttribute="trailing" constant="20" id="ixd-f3-b1c"/>
+                <constraint firstAttribute="trailing" secondItem="0Lb-bt-LwO" secondAttribute="trailing" constant="20" id="qoC-qM-cjs"/>
+                <constraint firstAttribute="trailing" secondItem="zsM-at-6Y6" secondAttribute="trailing" constant="20" id="ses-qi-NdG"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="YUI-ih-yFA"/>
+            <size key="customSize" width="298" height="46"/>
+            <connections>
+                <outlet property="disclosureView" destination="zsM-at-6Y6" id="wfg-R3-C1P"/>
+                <outlet property="separatorView" destination="0Lb-bt-LwO" id="PnB-Nw-iIR"/>
+                <outlet property="titleLabel" destination="HXg-tH-4sj" id="rnZ-S3-eeK"/>
+            </connections>
+            <point key="canvasLocation" x="67.200000000000003" y="-33.283358320839582"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="disclosure" width="8" height="13"/>
+    </resources>
+</document>

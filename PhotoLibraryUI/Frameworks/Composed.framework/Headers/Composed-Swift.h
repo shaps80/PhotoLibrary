@@ -227,23 +227,24 @@ SWIFT_CLASS("_TtC8Composed21CollectionViewWrapper")
 @end
 
 
-
-
 @interface CollectionViewWrapper (SWIFT_EXTENSION(Composed))
 - (SWIFT_METATYPE(UICollectionReusableView) _Nullable)backgroundViewClassIn:(UICollectionView * _Nonnull)collectionView forSectionAt:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionReusableView * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView viewForSupplementaryElementOfKind:(NSString * _Nonnull)kind atIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView willDisplaySupplementaryView:(UICollectionReusableView * _Nonnull)view forElementKind:(NSString * _Nonnull)elementKind atIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @end
+
+
 
 @class UICollectionViewCell;
 
 @interface CollectionViewWrapper (SWIFT_EXTENSION(Composed))
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didEndDisplayingCell:(UICollectionViewCell * _Nonnull)cell forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView willDisplayCell:(UICollectionViewCell * _Nonnull)cell forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)collectionView:(UICollectionView * _Nonnull)collectionView canPerformAction:(SEL _Nonnull)action forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath withSender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)collectionView:(UICollectionView * _Nonnull)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView performAction:(SEL _Nonnull)action forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath withSender:(id _Nullable)sender;
 - (BOOL)collectionView:(UICollectionView * _Nonnull)collectionView shouldSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (BOOL)collectionView:(UICollectionView * _Nonnull)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
@@ -285,6 +286,7 @@ SWIFT_CLASS("_TtC8Composed24DataSourceViewController")
 
 SWIFT_CLASS("_TtC8Composed22EmbeddedDataSourceCell")
 @interface EmbeddedDataSourceCell : UICollectionViewCell
+@property (nonatomic, readonly, strong) IBOutlet UICollectionView * _Null_unspecified collectionView;
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes * _Nonnull)layoutAttributes;
 - (void)prepareForReuse;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -299,8 +301,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layou
 + (Class _Nonnull)layoutAttributesClass SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull invalidationContextClass;)
 + (Class _Nonnull)invalidationContextClass SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)prepareLayout;
 - (void)invalidateLayoutWithContext:(UICollectionViewLayoutInvalidationContext * _Nonnull)context;
 @property (nonatomic, readonly) CGSize collectionViewContentSize;
@@ -313,6 +313,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull inval
 - (void)prepareForAnimatedBoundsChange:(CGRect)oldBounds;
 - (void)finalizeAnimatedBoundsChange;
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -333,6 +335,25 @@ SWIFT_CLASS("_TtC8Composed20FlowLayoutAttributes")
 SWIFT_CLASS("_TtC8Composed29FlowLayoutInvalidationContext")
 @interface FlowLayoutInvalidationContext : UICollectionViewFlowLayoutInvalidationContext
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UIScrollView;
+
+SWIFT_CLASS("_TtC8Composed4Snap")
+@interface Snap : NSObject <UIScrollViewDelegate>
+/// Called when dragging stops inside the scrollView
+/// \param scrollView The scrollView that was being dragged
+///
+/// \param velocity The velocity as dragging stopped
+///
+/// \param targetContentOffset The expected offset when the scrolling action decelerates to a stop
+///
+- (void)scrollViewWillEndDragging:(UIScrollView * _Nonnull)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint * _Nonnull)targetContentOffset;
+- (BOOL)respondsToSelector:(SEL _Null_unspecified)aSelector SWIFT_WARN_UNUSED_RESULT;
+- (id _Nullable)forwardingTargetForSelector:(SEL _Null_unspecified)aSelector SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 

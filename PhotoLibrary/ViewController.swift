@@ -1,6 +1,6 @@
 import UIKit
 import PhotosUI
-import PhotoLibraryUI
+import MediaLibraryUI
 
 final class ViewController: UIViewController, MediaPickerDelegate {
 
@@ -8,13 +8,13 @@ final class ViewController: UIViewController, MediaPickerDelegate {
         super.viewDidAppear(animated)
 
         let controller = MediaPickerViewController(in: .copy)
+        controller.delegate = self
         controller.allowsPickingMultipleItems = true
-        controller.interfaceStyle = .dark
         present(controller, animated: true, completion: nil)
     }
 
     func mediaPicker(_ controller: MediaPickerViewController, didPickMedia media: [PHAsset]) {
-        print("Picked: \(media)")
+        controller.dismiss(animated: true, completion: nil)
     }
 
     func mediaPickerWasCancelled(_ controller: MediaPickerViewController) {

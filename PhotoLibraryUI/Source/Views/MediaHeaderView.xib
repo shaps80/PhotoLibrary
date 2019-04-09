@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="J9r-zU-Aj8" customClass="MediaHeaderView" customModule="Pluto" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1" horizontalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="edb-bt-w4b" customClass="MediaSeparatorView" customModule="MediaLibraryUI">
+                    <rect key="frame" x="20" y="0.0" width="374" height="0.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="9WO-W8-FKS"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyJ-Lv-Uvg" customClass="MediaSecondaryLabel" customModule="MediaLibraryUI">
+                    <rect key="frame" x="20" y="37" width="296" height="18"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="Recent" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5x-eb-h58" customClass="MediaPrimaryLabel" customModule="MediaLibraryUI">
+                    <rect key="frame" x="20" y="10.5" width="296" height="26.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="hyJ-Lv-Uvg" firstAttribute="top" secondItem="w5x-eb-h58" secondAttribute="bottom" constant="4" id="33e-SW-yOD"/>
+                <constraint firstItem="hyJ-Lv-Uvg" firstAttribute="leading" secondItem="w5x-eb-h58" secondAttribute="leading" id="Gwc-V2-fY3"/>
+                <constraint firstItem="w5x-eb-h58" firstAttribute="leading" secondItem="J9r-zU-Aj8" secondAttribute="leading" constant="20" id="OsH-x9-tdl"/>
+                <constraint firstItem="w5x-eb-h58" firstAttribute="top" secondItem="edb-bt-w4b" secondAttribute="bottom" constant="20" id="Q1u-UN-Lqt"/>
+                <constraint firstAttribute="bottom" secondItem="hyJ-Lv-Uvg" secondAttribute="bottom" priority="999" id="QYw-Z3-TIG"/>
+                <constraint firstItem="edb-bt-w4b" firstAttribute="leading" secondItem="w5x-eb-h58" secondAttribute="leading" id="hfU-za-bvn"/>
+                <constraint firstItem="edb-bt-w4b" firstAttribute="top" secondItem="J9r-zU-Aj8" secondAttribute="top" id="rrG-Nd-JBN"/>
+            </constraints>
+            <connections>
+                <outlet property="detailLabel" destination="hyJ-Lv-Uvg" id="aCV-Va-Nbu"/>
+                <outlet property="separatorView" destination="edb-bt-w4b" id="DSw-UL-9Wx"/>
+                <outlet property="titleLabel" destination="w5x-eb-h58" id="G8s-aW-apR"/>
+            </connections>
+            <point key="canvasLocation" x="127.53623188405798" y="-37.834821428571423"/>
+        </collectionReusableView>
+    </objects>
+</document>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vng-Nn-kUN" customClass="MediaFolderCell" customModule="MediaLibraryUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="225"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="225"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kB9-E1-YjD">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WaI-K5-2Hu" customClass="MediaArtworkImageView" customModule="MediaLibraryUI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WaI-K5-2Hu" secondAttribute="height" multiplier="1:1" id="22r-4G-HXt"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0L0-XO-cEK" customClass="MediaArtworkImageView" customModule="MediaLibraryUI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="102" width="98" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0L0-XO-cEK" secondAttribute="height" multiplier="1:1" id="NXo-o6-PYe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="28m-31-Web" customClass="MediaArtworkImageView" customModule="MediaLibraryUI" customModuleProvider="target">
+                                <rect key="frame" x="102" y="102" width="98" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="28m-31-Web" secondAttribute="height" multiplier="1:1" id="oSp-19-iQO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="atI-3V-9tk" customClass="MediaArtworkImageView" customModule="MediaLibraryUI" customModuleProvider="target">
+                                <rect key="frame" x="102" y="0.0" width="98" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="atI-3V-9tk" secondAttribute="height" multiplier="1:1" id="dwd-aQ-upJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0L0-XO-cEK" secondAttribute="bottom" id="0z3-0c-fiS"/>
+                            <constraint firstItem="WaI-K5-2Hu" firstAttribute="width" secondItem="kB9-E1-YjD" secondAttribute="width" multiplier="0.5" constant="-2" id="53x-ay-xGU"/>
+                            <constraint firstItem="0L0-XO-cEK" firstAttribute="height" secondItem="kB9-E1-YjD" secondAttribute="height" multiplier="0.5" constant="-2" id="BaA-CZ-uqE"/>
+                            <constraint firstItem="0L0-XO-cEK" firstAttribute="leading" secondItem="kB9-E1-YjD" secondAttribute="leading" id="EsO-go-yxy"/>
+                            <constraint firstAttribute="trailing" secondItem="atI-3V-9tk" secondAttribute="trailing" id="Ixe-C5-VOs"/>
+                            <constraint firstItem="WaI-K5-2Hu" firstAttribute="height" secondItem="kB9-E1-YjD" secondAttribute="height" multiplier="0.5" constant="-2" id="MHw-eB-Udg"/>
+                            <constraint firstItem="atI-3V-9tk" firstAttribute="width" secondItem="kB9-E1-YjD" secondAttribute="width" multiplier="0.5" constant="-2" id="P7c-Fa-Asd"/>
+                            <constraint firstItem="atI-3V-9tk" firstAttribute="height" secondItem="kB9-E1-YjD" secondAttribute="height" multiplier="0.5" constant="-2" id="PJn-7t-IPC"/>
+                            <constraint firstItem="atI-3V-9tk" firstAttribute="top" secondItem="kB9-E1-YjD" secondAttribute="top" id="VVL-jN-zF7"/>
+                            <constraint firstItem="0L0-XO-cEK" firstAttribute="width" secondItem="kB9-E1-YjD" secondAttribute="width" multiplier="0.5" constant="-2" id="aVE-UJ-Wfr"/>
+                            <constraint firstItem="WaI-K5-2Hu" firstAttribute="top" secondItem="kB9-E1-YjD" secondAttribute="top" id="bij-i1-WrI"/>
+                            <constraint firstItem="WaI-K5-2Hu" firstAttribute="leading" secondItem="kB9-E1-YjD" secondAttribute="leading" id="hUT-He-8Tq"/>
+                            <constraint firstAttribute="trailing" secondItem="28m-31-Web" secondAttribute="trailing" id="iDD-ZB-6MQ"/>
+                            <constraint firstItem="28m-31-Web" firstAttribute="width" secondItem="kB9-E1-YjD" secondAttribute="width" multiplier="0.5" constant="-2" id="leC-5k-r8i"/>
+                            <constraint firstAttribute="bottom" secondItem="28m-31-Web" secondAttribute="bottom" id="rPD-ma-bPS"/>
+                            <constraint firstItem="28m-31-Web" firstAttribute="height" secondItem="kB9-E1-YjD" secondAttribute="height" multiplier="0.5" constant="-2" id="vFl-Rc-X6q"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wki-5U-6Py" customClass="MediaPrimaryLabel" customModule="MediaLibraryUI" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="204" width="200" height="21"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="wki-5U-6Py" secondAttribute="bottom" priority="999" id="9VH-Y8-enq"/>
+                <constraint firstItem="wki-5U-6Py" firstAttribute="leading" secondItem="vng-Nn-kUN" secondAttribute="leading" id="DvI-jK-ZWd"/>
+                <constraint firstItem="kB9-E1-YjD" firstAttribute="top" secondItem="vng-Nn-kUN" secondAttribute="top" id="Sgz-do-BbN"/>
+                <constraint firstAttribute="trailing" secondItem="kB9-E1-YjD" secondAttribute="trailing" id="W0e-2K-FKi"/>
+                <constraint firstItem="kB9-E1-YjD" firstAttribute="leading" secondItem="vng-Nn-kUN" secondAttribute="leading" id="haj-4h-r4d"/>
+                <constraint firstItem="wki-5U-6Py" firstAttribute="top" secondItem="kB9-E1-YjD" secondAttribute="bottom" constant="4" id="oze-ra-Aep"/>
+                <constraint firstAttribute="trailing" secondItem="wki-5U-6Py" secondAttribute="trailing" id="yH2-aw-xgb"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SCq-dz-MtI"/>
+            <size key="customSize" width="200" height="225"/>
+            <connections>
+                <outlet property="titleLabel" destination="wki-5U-6Py" id="ekx-Uc-I1I"/>
+                <outletCollection property="imageViews" destination="WaI-K5-2Hu" collectionClass="NSMutableArray" id="eTI-Au-0bT"/>
+                <outletCollection property="imageViews" destination="atI-3V-9tk" collectionClass="NSMutableArray" id="Efd-hO-bMc"/>
+                <outletCollection property="imageViews" destination="0L0-XO-cEK" collectionClass="NSMutableArray" id="Tka-nC-CFn"/>
+                <outletCollection property="imageViews" destination="28m-31-Web" collectionClass="NSMutableArray" id="WSY-mC-7d1"/>
+            </connections>
+            <point key="canvasLocation" x="297.60000000000002" y="3.1484257871064472"/>
+        </collectionViewCell>
+    </objects>
+</document>
