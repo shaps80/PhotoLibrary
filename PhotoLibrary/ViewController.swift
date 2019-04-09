@@ -1,20 +1,24 @@
-//
-//  ViewController.swift
-//  PhotoLibrary
-//
-//  Created by Shaps Benkau on 09/04/2019.
-//  Copyright © 2019 152 Percent Ltd. All rights reserved.
-//
-
 import UIKit
+import PhotosUI
+import PhotoLibraryUI
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController, MediaPickerDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let controller = MediaPickerViewController(in: .copy)
+        controller.allowsPickingMultipleItems = true
+        controller.interfaceStyle = .dark
+        present(controller, animated: true, completion: nil)
     }
 
+    func mediaPicker(_ controller: MediaPickerViewController, didPickMedia media: [PHAsset]) {
+        print("Picked: \(media)")
+    }
+
+    func mediaPickerWasCancelled(_ controller: MediaPickerViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 
 }
-

@@ -1,0 +1,11 @@
+framework module Composed {
+  umbrella header "Composed.h"
+
+  export *
+  module * { export * }
+}
+
+module Composed.Swift {
+    header "Composed-Swift.h"
+    requires objc
+}
