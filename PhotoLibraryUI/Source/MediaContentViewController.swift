@@ -2,6 +2,10 @@ import UIKit
 import Photos
 import Composed
 
+internal protocol MediaPickerSelectionDelegate: class {
+    func dataSource(_ dataSource: DataSource, didUpdateSelection object: PHObject)
+}
+
 internal final class MediaContentViewController: DataSourceViewController {
 
     override class var collectionViewClass: UICollectionView.Type {
@@ -42,6 +46,10 @@ internal final class MediaContentViewController: DataSourceViewController {
 
         self.imageCache.allowsCachingHighQualityImages = false
         assetOptions?.wantsIncrementalChangeDetails = true
+
+        albums
+            .map { $0 as? MediaAssetsDataSource }
+            .forEach { $0?.selectionDelegate = self }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -70,8 +78,6 @@ internal final class MediaContentViewController: DataSourceViewController {
     }
 
     private func invalidateBarButtonItems(animated: Bool) {
-        collectionView.allowsMultipleSelection = isEditing
-
         if !isEditing {
             collectionView.indexPathsForSelectedItems?.forEach { collectionView.deselectItem(at: $0, animated: animated) }
         }
@@ -176,6 +182,14 @@ private extension MediaContentViewController {
     @objc func cancel() {
         guard let picker = picker else { return }
         picker.delegate?.mediaPickerWasCancelled?(picker)
+    }
+
+}
+
+extension MediaContentViewController: MediaPickerSelectionDelegate {
+
+    func dataSource(_ dataSource: DataSource, didUpdateSelection object: PHObject) {
+        invalidateBarButtonItems(animated: false)
     }
 
 }

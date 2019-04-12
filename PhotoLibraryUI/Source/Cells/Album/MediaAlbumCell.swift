@@ -1,12 +1,25 @@
 import UIKit
 import Composed
 
-internal final class MediaAlbumCell: UICollectionViewCell, ReusableViewNibLoadable {
+internal final class MediaAlbumCell: UICollectionViewCell, ReusableViewNibLoadable, DataSourceEditableView {
 
     @IBOutlet private weak var titleLabel: MediaPrimaryLabel!
     @IBOutlet internal weak var imageView: MediaArtworkImageView!
 
+    private(set) var isEditing: Bool = false
     internal var assetId: String?
+
+    func setEditing(_ editing: Bool, animated: Bool) {
+        isEditing = editing
+
+        if animated {
+            UIView.animate(withDuration: 0.24) {
+                self.contentView.alpha = editing ? 0.3 : 1
+            }
+        } else {
+            contentView.alpha = editing ? 0.3 : 1
+        }
+    }
 
     internal func prepare(title: String?) {
         titleLabel.text = title

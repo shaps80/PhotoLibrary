@@ -1,5 +1,5 @@
 import UIKit
-import PhotosUI
+import Photos
 import MediaLibraryUI
 
 final class ViewController: UIViewController, MediaPickerDelegate {

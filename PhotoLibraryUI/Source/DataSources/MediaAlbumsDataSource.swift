@@ -15,6 +15,8 @@ internal final class MediaAlbumsDataSource: PhotosDataSource<PHCollection> {
     private let imageCache: PHCachingImageManager
     private let assetOptions: PHFetchOptions?
 
+    weak var selectionDelegate: MediaPickerSelectionDelegate?
+
     internal init(layoutStyle: LayoutStyle, store: PhotosDataStore<PHCollection>, assetOptions: PHFetchOptions?, imageCache: PHCachingImageManager) {
         self.layoutStyle = layoutStyle
         self.imageCache = imageCache

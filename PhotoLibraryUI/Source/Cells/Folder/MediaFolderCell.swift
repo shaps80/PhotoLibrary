@@ -51,7 +51,14 @@ extension MediaFolderCell: DataSourceEditableView {
 
     func setEditing(_ editing: Bool, animated: Bool) {
         isEditing = editing
-        contentView.alpha = editing ? 0.3 : 1
+
+        if animated {
+            UIView.animate(withDuration: 0.2) {
+                self.contentView.alpha = editing ? 0.3 : 1
+            }
+        } else {
+            contentView.alpha = editing ? 0.3 : 1
+        }
     }
 
 }

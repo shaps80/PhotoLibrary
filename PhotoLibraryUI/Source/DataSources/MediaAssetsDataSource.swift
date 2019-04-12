@@ -5,6 +5,7 @@ import Composed
 internal final class MediaAssetsDataSource: PhotosDataSource<PHAsset> {
 
     private(set) var isEditing: Bool = false
+    weak var selectionDelegate: MediaPickerSelectionDelegate?
     
     private var cellConfiguration: DataSourceUIConfiguration?
     internal var imageCache: PHCachingImageManager
@@ -123,7 +124,7 @@ extension MediaAssetsDataSource: EditHandlingDataSource {
 extension MediaAssetsDataSource: SelectionHandlingDataSource {
 
     var allowsMultipleSelection: Bool {
-        return false
+        return isEditing
     }
 
     fileprivate func dispatchIfNeeded(_ closure: () -> Void) {
@@ -141,6 +142,8 @@ extension MediaAssetsDataSource: SelectionHandlingDataSource {
     }
 
     func selectElement(at indexPath: IndexPath) {
+        selectionDelegate?.dataSource(self, didUpdateSelection: element(at: indexPath))
+        
         guard !isEditing else { return }
         let asset = element(at: indexPath)
 
@@ -155,6 +158,10 @@ extension MediaAssetsDataSource: SelectionHandlingDataSource {
 
         cell.setState(.preparing)
         prepareCell(cell, asset: asset)
+    }
+
+    func deselectElement(at indexPath: IndexPath) {
+        selectionDelegate?.dataSource(self, didUpdateSelection: element(at: indexPath))
     }
 
 }
